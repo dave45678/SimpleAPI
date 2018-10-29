@@ -24,11 +24,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .antMatchers("/admin").hasAuthority("ADMIN")
                 .anyRequest().authenticated()
+//                Does not work for logging out if you're not using a form
         .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/").permitAll();
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//      Uses a BcryptPasswordEncoder, and allows 2 different types of users (see authorities)
         auth.inMemoryAuthentication().passwordEncoder(new BCryptPasswordEncoder())
                 .withUser("admin").password(new BCryptPasswordEncoder().encode("password")).authorities("ADMIN")
                 .and().withUser("user").password(new BCryptPasswordEncoder().encode("password")).authorities("USER");

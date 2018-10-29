@@ -23,6 +23,9 @@ Adds information to an arraylist of data. This can also be a database, if necess
 Shows a json array containing a list of objects. 
 
 **/admin:** 
+Only accessible to admin users 
 
-only accessible to admin users 
+**This project uses Commons Lang to generate a random string up to a given number of characters**
+(See the POM file)  
+
 
