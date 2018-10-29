@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicLong;
 @Controller
 public class MainController {
 
-    private AtomicLong theId;
+    private AtomicLong theId = new AtomicLong();
     ArrayList<DataClass> allData = new ArrayList<>();
 
     @RequestMapping("/")
@@ -31,7 +31,7 @@ public class MainController {
     {
         DataClass moredata = new DataClass();
         long thisAtomicLong;
-        moredata.setId(new AtomicLong().get());
+        moredata.setId(theId.incrementAndGet());
         moredata.setData("Another item "+RandomStringUtils.randomAlphabetic(3));
         allData.add(moredata);
         return "Data has been added";
