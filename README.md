@@ -28,4 +28,7 @@ Only accessible to admin users
 **This project uses Commons Lang to generate a random string up to a given number of characters**
 (See the POM file)  
 
+** For Posting **
+https://chillyfacts.com/java-send-http-getpost-request-and-read-json-response/
+
 
